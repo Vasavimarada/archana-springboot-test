@@ -30,6 +30,15 @@ public class HelloWorldController {
 				return new ResponseEntity<Customer>(vasavi,HttpStatus.OK);
     	
     }
+    @RequestMapping(method= {RequestMethod.GET},value="/billing")@ResponseStatus(HttpStatus.OK)
+    public @ResponseBody ResponseEntity<Billing> printCustomer(@RequestParam(value="name",required=true) String name,
+    		@RequestParam (value="Cardnumber",required=false) int Cardnumber, @RequestParam(value="cvv",required =true) int cvv){
+    	CustomerDetailsImpl c2= new CustomerDetailsImpl();
+    	Billing Archana= c2.printBilling(name, Cardnumber, cvv);
+    	
+    	return new ResponseEntity<Billing>(Archana,HttpStatus.OK);
+    	
+    }
     
     /*@RequestMapping(method= {RequestMethod.POST},value="/customer")@ResponseStatus(HttpStatus.OK)
     public @ResponseBody ResponseEntity<Customer> storeCustomer( @RequestBody){

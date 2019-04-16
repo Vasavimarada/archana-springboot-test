@@ -11,6 +11,13 @@ public class CustomerDetailsImpl {
 		
 		return c;
 	}
+	public Billing printBilling(String name,int Cardnumber, int cvv) {
+		Billing b = new Billing();
+		b.setName(name);
+		b.setCardnumber(Cardnumber);
+		b.setCvv(cvv);
+		return b;
+	}
 	
 
 }
